@@ -1,0 +1,36 @@
+package com.akash;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class addServlet extends HttpServlet
+{
+//	public void service(HttpServletRequest req,HttpServletResponse res) throws IOException {
+//		int val1 = Integer.parseInt(req.getParameter("num1"));
+//		int val2 = Integer.parseInt(req.getParameter("num2"));
+//		int total = val1+val2;
+//		System.out.println("the total is :" + total);
+//		
+//		PrintWriter out = res.getWriter();
+//		out.println("this is the total value : "+total);
+//		}
+	public void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException {
+		int val1 = Integer.parseInt(req.getParameter("num1"));
+		int val2 = Integer.parseInt(req.getParameter("num2"));
+		int total = val1+val2;
+//		System.out.println("the total is :" + total);
+		RequestDispatcher rd = req.getRequestDispatcher("sq");
+		rd.forward(req,res);
+		
+		
+		PrintWriter out = res.getWriter();
+		out.println("this is the total value : "+total);
+		}
+	
+}
