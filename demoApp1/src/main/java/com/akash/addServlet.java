@@ -1,16 +1,23 @@
 package com.akash;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.HttpConstraint;
+import javax.servlet.annotation.ServletSecurity;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+@WebServlet("/add")
+@ServletSecurity(
+    @HttpConstraint(rolesAllowed = {"admin"})   // 👈 Only "admin" role allowed
+)
 public class addServlet extends HttpServlet
 {
 //	public void service(HttpServletRequest req,HttpServletResponse res) throws IOException {
@@ -40,7 +47,7 @@ public class addServlet extends HttpServlet
 		
 		Cookie cook =  new Cookie("k",total+"");
 		res.addCookie(cook);
-		res.sendRedirect("sq");
+//		res.sendRedirect("sq");
 		PrintWriter out = res.getWriter();
 		out.println("this is the total value : "+total);
 		}
