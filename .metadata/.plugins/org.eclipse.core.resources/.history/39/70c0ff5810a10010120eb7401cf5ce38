@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	
+<%
+int val1 = Integer.parseInt(request.getParameter("num1"));
+int val2 = Integer.parseInt(request.getParameter("num2"));
+int total = val1+val2;
+
+<h2>Result of Addition:</h2>
+<p>Total: ${total}</p>
+<a href="index.jsp">Go back</a>
+//System.out.println("the total is :" + total);
+//out.println("this is the total value : "+total); 
+%>
+
+</body>
+</html>

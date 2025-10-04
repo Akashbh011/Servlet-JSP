@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%@ page import="java.lang.*" %>
+<%
+    String s1 = request.getParameter("num1");
+    String s2 = request.getParameter("num2");
+    if(s1 != null && s2 != null) {
+        int num1 = Integer.parseInt(s1);
+        int num2 = Integer.parseInt(s2);
+        int total = num1 + num2;
+%>
+        <h2>Result of Addition:</h2>
+        <p>Total: <%= total %></p>
+<%
+    } else {
+%>
+        <p>Please enter two numbers.</p>
+<%
+    }
+%>
+
+<a href="index.jsp">Go Back</a>
+
+</body>
+</html>
